@@ -32,4 +32,12 @@ return [
     'taglib_begin' => '{',
     // 标签库标签结束标记
     'taglib_end'   => '}',
+    // 模板文件输出的内容进行字符替换
+    'tpl_replace_string'  =>  [
+        '__CSS__' => '/static/admin/css',
+        '__PUBLIC__' => '/static/public',
+        '__JS__' => '/static/admin/js',
+    ],
+    // 是否开启模板编译缓存,设为false则每次都会重新编译
+    'tpl_cache' => false,
 ];

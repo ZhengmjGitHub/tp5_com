@@ -17,11 +17,11 @@ class AuthBehavior extends Controller {
 	public function run(Request $Request) {
 		$operate_rute = config('auth');
 		// 定义需要排除的权限路由
-		$exclude = $operate_rute['exclude'];
+		$exclude = config('auth.exclude');
 		// 定义未登陆需要排除的权限路由
-		$login = $operate_rute['login'];
+		$login = config('auth.login');
 		// 定义不需要检测权限的模块
-		$moudel = $operate_rute['moudel'];
+		$moudel = config('auth.moudel');
 
 		// 行为逻辑
 		try {
