@@ -44,6 +44,7 @@ class Console
         'make:model'        => "think\\console\\command\\make\\Model",
         'make:middleware'   => "think\\console\\command\\make\\Middleware",
         'make:validate'     => "think\\console\\command\\make\\Validate",
+        'make:service'     => "think\\console\\command\\make\\Service",
         'optimize:autoload' => "think\\console\\command\\optimize\\Autoload",
         'optimize:config'   => "think\\console\\command\\optimize\\Config",
         'optimize:schema'   => "think\\console\\command\\optimize\\Schema",
