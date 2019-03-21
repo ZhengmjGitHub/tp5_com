@@ -7,8 +7,9 @@
  * @param $password_code 密码额外加密字符
  * @return string
  */
-function password($password, $password_code = 'think_demo') 
+function password($password) 
 {
+	$password_code = config('admin.password_code');
 	return md5(md5($password) . md5($password_code));
 }
 
