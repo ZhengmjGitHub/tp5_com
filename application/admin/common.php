@@ -7,10 +7,10 @@
  * @param $password_code 密码额外加密字符
  * @return string
  */
-function password($password) 
+function password($password)
 {
-	$password_code = config('admin.password_code');
-	return md5(md5($password) . md5($password_code));
+    $password_code = config('admin.password_code');
+    return md5(md5($password) . md5($password_code));
 }
 
 /**
@@ -20,17 +20,18 @@ function password($password)
  * @param string $type    加密的方法-ENCODE|加密 DECODE|解密
  * @return string
  */
-function strCode($string, $key, $type = 'ENCODE') {
-	$string = ($type == 'DECODE') ? base64_decode($string) : $string;
-	$key_len = strlen($key);
-	$key = md5($key);
-	$string_len = strlen($string);
-	$code = '';
-	for ($i=0; $i<$string_len; $i++) {
-		$j = ($i * $key_len) % 32;
-		$code .= $string[$i] ^ $key[$j];
-	}
-	return ($type == 'ENCODE') ? base64_encode($code) : $code;
+function strCode($string, $key, $type = 'ENCODE')
+{
+    $string = ($type == 'DECODE') ? base64_decode($string) : $string;
+    $key_len = strlen($key);
+    $key = md5($key);
+    $string_len = strlen($string);
+    $code = '';
+    for ($i = 0; $i < $string_len; $i++) {
+        $j = ($i * $key_len) % 32;
+        $code .= $string[$i] ^ $key[$j];
+    }
+    return ($type == 'ENCODE') ? base64_encode($code) : $code;
 }
 
 /**
@@ -39,11 +40,12 @@ function strCode($string, $key, $type = 'ENCODE') {
  * @param  string $delimiter 数字和单位分隔符
  * @return string            格式化后的带单位的大小
  */
-function formatBytes($size, $delimiter = '') {
-	$units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB');
-	for ($i = 0; $size >= 1024 && $i < 5; $i++) {
-		$size /= 1024;
-	}
+function formatBytes($size, $delimiter = '')
+{
+    $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB');
+    for ($i = 0; $size >= 1024 && $i < 5; $i++) {
+        $size /= 1024;
+    }
 
-	return round($size, 2) . $delimiter . $units[$i];
+    return round($size, 2) . $delimiter . $units[$i];
 }
