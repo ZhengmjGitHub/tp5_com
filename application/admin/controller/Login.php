@@ -63,7 +63,7 @@ class Login extends Controller
         }
 
         // 记录操作日志
-        return $this->success('登录成功,正在跳转...', 'admin/index/index');
+        return $this->success('登录成功,正在跳转...', 'admin/Index/index');
     }
 
     /**
@@ -74,6 +74,12 @@ class Login extends Controller
      */
     public function loginOut()
     {
+        // 清除登陆信息
+        Cookie::clear('account');
 
+        // 清除管理员账号信息
+        Session::clear('think_demo_');
+
+        return $this->success('正在退出...', 'admin/Login/login');
     }
 }
